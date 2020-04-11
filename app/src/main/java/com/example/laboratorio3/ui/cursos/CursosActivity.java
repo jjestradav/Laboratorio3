@@ -41,8 +41,13 @@ public class CursosActivity extends AppCompatActivity {
     private void populateSpinner(){
 
         int codigoCiclo=getIntent().getIntExtra("ciclo",-1);
-       // List<Curso> list=new ArrayList<>();
-        List<Curso> list= Database.cursosPorProfesor(Database.currentUser,codigoCiclo);
+        List<Curso> list;
+        if(Database.currentUser.equals("0000"))
+            list=Database.getCursos;
+
+        else
+         list= Database.cursosPorProfesor(Database.currentUser,codigoCiclo);
+
         ArrayAdapter<Curso> spinnerArrayAdapter = new ArrayAdapter<Curso>(
                 this, android.R.layout.simple_spinner_item, list);
         spinnerArrayAdapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );

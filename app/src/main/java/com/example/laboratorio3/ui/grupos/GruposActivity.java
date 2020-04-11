@@ -41,7 +41,16 @@ public class GruposActivity extends AppCompatActivity {
     private void populateSpinner(){
 
         int codigoCurso=getIntent().getIntExtra("curso",-1);
-        List<Grupo> list= Database.gruposPorProfesor(Database.currentUser,codigoCurso);
+        List<Grupo> list= null;
+        Log.v("ADIOS",""+codigoCurso);
+        if(Database.currentUser.equals("0000")){
+            list=Database.grupos;
+            Log.v("EDITV2",""+list);
+        }
+        else{
+            list=Database.gruposPorProfesor(Database.currentUser,codigoCurso);
+        }
+
         ArrayAdapter<Grupo> spinnerArrayAdapter = new ArrayAdapter<Grupo>(
                 this, android.R.layout.simple_spinner_item, list);
         spinnerArrayAdapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );

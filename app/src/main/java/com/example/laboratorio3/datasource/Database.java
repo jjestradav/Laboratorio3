@@ -28,7 +28,6 @@ public class Database {
     private static Alumno alumno4=new Alumno("4444","Pablo",85868788,"pablo@alumno.com",new Date());
     public static String currentUser="";
     public static List<Ciclo> getCiclos=Ciclos();
-    public static List<Grupo> grupos=getGrupos();
     private static Usuario us1=new Usuario("123456789","profesor","profesor");
     private static Usuario us2=new Usuario("987654321","profesor","profesor");
     private static Usuario us3=new Usuario("0000","superuser","superuser");
@@ -50,6 +49,7 @@ public class Database {
     private static GrupoAlumno grupoAlumno2=new GrupoAlumno(grupo1,alumno2,0.0f);
     private static GrupoAlumno grupoAlumno3=new GrupoAlumno(grupo1,alumno3,0.0f);
     private static GrupoAlumno grupoAlumno4=new GrupoAlumno(grupo1,alumno4,0.0f);
+    public static List<Grupo> grupos=getGrupos();
     public static List<GrupoAlumno> getGrupoAlumnos=new ArrayList<GrupoAlumno>() {
 
         {
@@ -60,6 +60,17 @@ public class Database {
         }
     };
 
+    public static List<Curso> getCursos=new ArrayList<Curso>() {
+
+        {
+            add(curso1);
+            add(curso2);
+            add(curso3);
+            add(curso4);
+            add(curso5);
+            add(curso6);
+        }
+    };
 
 
 
@@ -92,6 +103,7 @@ public class Database {
         List<Usuario> result=new ArrayList<>();
         result.add(us1);
         result.add(us2);
+        result.add(us3);
 
         return result;
     }
